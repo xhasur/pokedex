@@ -1,0 +1,11 @@
+.align-pokemon-left {
+   /*float: left;*/
+}
+
+.align-pokemon-rigth {
+    /*float: right;*/
+}
+
+.pokemons-title{
+    text-align: center;
+}

@@ -1,0 +1,13 @@
+<h1 class="pokemons-title">
+  {{title}}
+</h1>
+<div *ngFor="let pokemon of pokemons;
+             let i = index;
+             let isOdd=odd;
+             let isEven=even" 
+      [class.align-pokemon-left]="isOdd" 
+      [class.align-pokemon-rigth]="isEven">
+       <div align="center">
+      <pokemon-component [pokemon]="pokemon" ></pokemon-component>
+       </div>
+</div>

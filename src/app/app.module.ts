@@ -3,23 +3,32 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-
 import { AppComponent } from './app.component';
 import {InitComponent} from './init.component'
 import {PageNotFoundComponent} from './pageNotFound/pageNotFound.component'
-import {HomeComponent} from './home/home.component'
+import {PokemonListComponent} from './pokemon/list/pokemon-list.component'
+import {PokemonComponent} from './pokemon/pokemon.component'
+import {PokemonDetailsComponent} from './pokemon/details/pokemons-details.component'
+
+import {PokemonService} from './services/pokemons.services'
+
+import { MaterialModule } from '@angular/material';
+import 'hammerjs';
+
+import { ImageifyPipe } from './pipes/imageify.pipe';
 
 import { RouterModule, Routes } from '@angular/router';
 import { APPROUTER } from './commons/router';
-
-
 
 @NgModule({
   declarations: [
     InitComponent,
     AppComponent,
-    HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PokemonListComponent,
+    PokemonComponent,
+    PokemonDetailsComponent,
+    ImageifyPipe
   ],
   imports: [
     BrowserModule,
@@ -27,8 +36,9 @@ import { APPROUTER } from './commons/router';
     HttpModule,
     ReactiveFormsModule,
     RouterModule.forRoot(APPROUTER),
+    MaterialModule.forRoot()
   ],
-  providers: [],
+  providers: [PokemonService],
   bootstrap: [InitComponent]
 })
 export class AppModule { }

@@ -1,0 +1,12 @@
+<md-card class="card">
+  <h2>NAME : {{pokemon.name}}</h2>
+ <img src="{{pokemon.name | imageify}}" class="md-card-image" alt="image caption">
+ <md-card-content>
+   <p># : {{pokemon.id}}</p>
+   <p>WEIGHT : {{pokemon.weight}}</p>
+   <p>HEIGTH : {{pokemon.height}}</p>
+ </md-card-content>
+  <md-card-actions>
+    <button md-button (click)="getPokemon(pokemon.id)">VER POKEMON</button>
+  </md-card-actions>
+</md-card>
