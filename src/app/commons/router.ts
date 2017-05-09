@@ -6,6 +6,6 @@ import { PokemonDetailsComponent } from '../pokemon/details/pokemons-details.com
 
 export const APPROUTER:Routes= [
     {path:'', component: AppComponent},
-    { path: 'pokemon-details/:idPokemon', component: PokemonDetailsComponent }
+    { path: 'pokemon-details/:pokemonName', component: PokemonDetailsComponent }
     //{path:'**', component: PageNotFoundComponent}
 ]

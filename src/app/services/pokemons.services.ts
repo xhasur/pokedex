@@ -10,26 +10,46 @@ import 'rxjs/add/operator/toPromise';
 export class PokemonService {
     constructor(private http: Http) { }
  
-    urlBackEnd = "http://localhost:3000/";
+    urlBackEnd = "https://pokeapi.co/api/v2/";
  
  
 getPokemonsMock(){
         return POKEMONS;
     }
 
- getPokemons() {
-        return this.http.get(this.urlBackEnd +'getPokemons')
+ getPokemonMock(id:number){
+        let ticket = POKEMONS.find(x => x.id == id);
+        return ticket;
+    }
+ 
+ 
+ getPokemons():Promise<any[]> {
+        let url:string = this.urlBackEnd +'pokemon/?limit=150';
+        return this.http.get(url)
              .toPromise()
              .then(this.extractData)
              .catch(this.handleError);
     }
  
+
+
+
+ getPokemon(id:string): Promise<any[]> {
+        let url:string = this.urlBackEnd +'pokemon/'+id+'/';
+        return this.http.get(url)
+             .toPromise()
+             .then(this.extractData)
+             .catch(this.handleError);
+    }
+ 
+
    
     private extractData(res: Response) {
         let body = res.json();
         console.log("body", body);
-        if (body.status == 200){
-            return body.result;
+        debugger;
+        if (body != null){
+            return body;
         }
         else{
             return { };

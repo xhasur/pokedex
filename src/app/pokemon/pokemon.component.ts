@@ -16,8 +16,8 @@ constructor(private route: ActivatedRoute, private router: Router){}
     ngOnInit() {  
     }
 
-   getPokemon(idPokemon: string):void{
-         this.router.navigate(['/pokemon-details', idPokemon]);
+   getPokemon(namePokemon: string):void{
+         this.router.navigate(['/pokemon-details', namePokemon]);
    }
 
 }
