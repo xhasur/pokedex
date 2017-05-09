@@ -1,7 +1,7 @@
 <h1 class="pokemons-title">
   {{title}}
 </h1>
-<div *ngFor="let pokemon of pokemons.results;
+<div *ngFor="let pokemon of pokemons;
              let i = index;
              let isOdd=odd;
              let isEven=even" 
@@ -9,6 +9,6 @@
       [class.align-pokemon-rigth]="isEven">
        <div align="center">
         {{pokemon.name}}
-      <pokemon-component [pokemon]="pokemon"></pokemon-component>
+      <pokemon-component [pokemon]="pokemon" [index]="i+1"></pokemon-component>
        </div>
 </div>

@@ -34,7 +34,7 @@ getPokemonsMock(){
 
 
 
- getPokemon(id:string): Promise<any[]> {
+ getPokemon(id:number): Promise<any> {
         let url:string = this.urlBackEnd +'pokemon/'+id+'/';
         return this.http.get(url)
              .toPromise()
@@ -47,9 +47,11 @@ getPokemonsMock(){
     private extractData(res: Response) {
         let body = res.json();
         console.log("body", body);
-        debugger;
         if (body != null){
-            return body;
+            if(body.results == null){
+                return body;
+            }
+            return body.results;
         }
         else{
             return { };

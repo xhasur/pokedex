@@ -10,14 +10,18 @@ import { Router, ActivatedRoute  } from '@angular/router';
 export class PokemonComponent implements OnInit{
     
 @Input() pokemon:any = {}
+@Input() index:any = {}
 
 constructor(private route: ActivatedRoute, private router: Router){}
 
     ngOnInit() {  
+        console.log(JSON.stringify(this.pokemon));
+        console.log(JSON.stringify(this.index));
     }
 
-   getPokemon(namePokemon: string):void{
-         this.router.navigate(['/pokemon-details', namePokemon]);
+
+   getPokemon(idPokemon: number):void{
+         this.router.navigate(['/pokemon-details', idPokemon]);
    }
 
 }

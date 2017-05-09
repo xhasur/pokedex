@@ -20,12 +20,13 @@ constructor(private pokemonService : PokemonService){
 
     ngOnInit() {
        this.title = 'List Of Pokemons';     
-       //this.pokemons = this.pokemonService.getPokemonsMock();   
+       /*this.pokemons = this.pokemonService.getPokemonsMock();   */  
        this.pokemonService.getPokemons()
         .then(
           pokemons => this.pokemons = pokemons,
           error => this.errorMessage = <any>error
         );
+      
     }
 
 

@@ -15,19 +15,17 @@ import { PokemonService} from '../../services/pokemons.services';
     templateUrl: 'pokemons-details.component.html',
      styleUrls: ['pokemons-details.component.css']
 })
-export class PokemonDetailsComponent {
+export class PokemonDetailsComponent implements OnInit{
     
     id:number;
-    pokemon:any;
+    pokemon:any={};
     tab:Number = 1;
     errorMessage:string;
 
-    constructor(private route: ActivatedRoute,private router:ActivatedRoute,private pokemonService:PokemonService){}
+    constructor(private route: ActivatedRoute,private router:Router,private pokemonService:PokemonService){}
    
     ngOnInit() {  
-        debugger;
-        //let id = +this.route.snapshot.params['pokemonName'];
-        let id = this.route.snapshot.params['pokemonName'];
+        let id = +this.route.snapshot.params['id'];
         //this.pokemon = this.service.getPokemonMock(id);
         this.pokemonService.getPokemon(id)
             .then(
@@ -36,6 +34,10 @@ export class PokemonDetailsComponent {
             )
     }
      selectTab = tab => this.tab = tab
+
+  getPokemons():void {
+         this.router.navigate(['']);
+  }
 
 
 }
